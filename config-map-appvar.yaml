@@ -1,0 +1,17 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: appvar
+  namespace: default
+data:
+  # 类属性健，每一个健都映射到一个简单的值
+  player_initial_lives: "3"
+  ui_properties_file_name: "user-interface.perperties"
+  # 类文件值
+  game.properties: |
+    enemp.types=aliens,monsters
+    player.maximum-lives=5
+  user-interface.perperties: |
+    color.good=purple
+    color.bad=yellow
+    allow.textmode=true
