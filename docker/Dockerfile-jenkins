@@ -1,10 +1,9 @@
 # version 0.0.1
-FROM jenkins/jenkins:lts
+FROM ubuntu:14.04
 ENV REFRESHED_AT 2014-06-01
-USER root
-RUN apt-get -qq update && apt-get install --qq sudo
-RUN echo "jenkins All=NOPASSWD: All" >> /etc/sudoers
-RUN wget  http://get.docker.com/builds/Linux/x86_64/docker-latest.tgz
-RUN tar -zxvf docker-latest.tgz
-RUN mv docker/* /usr/bin
-RUN /usr/local/bin/install-plugins.sh junit git git-client ssh-slaves greenballs chuncknorris ws-cleanup
+RUN apt-get update -qq && apt-get install -qqy curl apt-transport-https
+RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+RUN echo deb https://apt.dockerproject.org/repo ubuntu-trusty main > /etc/apt/sources.list.d/docker.list
+RUN apt-get update -qq && apt-get install -qqy iptables cacertificates openjdk-7jdk git-core docker-engine
+ENV JENKINS_HOME=/opt/jenkins/data
+ENV JENKINS_MIRROR=http://mirrors.jenkins-ci.org
