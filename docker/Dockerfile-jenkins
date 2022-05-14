@@ -1,0 +1,10 @@
+# version 0.0.1
+FROM jenkins/jenkins:lts
+ENV REFRESHED_AT 2014-06-01
+USER root
+RUN apt-get -qq update && apt-get install --qq sudo
+RUN echo "jenkins All=NOPASSWD: All" >> /etc/sudoers
+RUN wget  http://get.docker.com/builds/Linux/x86_64/docker-latest.tgz
+RUN tar -zxvf docker-latest.tgz
+RUN mv docker/* /usr/bin
+RUN /usr/local/bin/install-plugins.sh junit git git-client ssh-slaves greenballs chuncknorris ws-cleanup
