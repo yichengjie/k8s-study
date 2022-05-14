@@ -1,0 +1,9 @@
+# version 0.0.1
+FROM centos:7.9.2009
+ENV REFRESHED_AT 2014-06-01
+RUN curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+RUN yum install -y openjdk:8u332-oraclelinux7
+
+EXPOSE 8080
+
+#ENTRYPOINT ["java" , "-version"]
