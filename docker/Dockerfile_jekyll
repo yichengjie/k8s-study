@@ -1,0 +1,13 @@
+# version 0.0.1 jekyll
+FROM ubuntu:14.04
+LABEL jAMES="tURNBULL james@example.com"
+RUN apt-get -yqq update && apt-get -yqq install ruby ruby-dev make nodejs 
+RUN gem sources --remove https://rubygems.org/ \
+    gem sources -a https://mirrors.aliyun.com/rubygems/ \
+#RUN gem install --no-rdoc --no-ri jekyll -v 2.5.3
+
+VOLUME [ "/data", "/var/www/html" ]
+
+WORKDIR /data
+
+#ENTRYPOINT [ "jekyll", "build", "--destination=/var/www/html" ]
