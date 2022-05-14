@@ -1,11 +1,11 @@
 # 构建用于此作业的镜像
-IMAGE=$(docker build . | tail -l | awk '{ print $NF }')
+IMAGE=$(docker build . | tail -1 | awk '{ print $NF }')
 # 构建挂在到Docker的目录
 MNT="$WORKSPACE/.."
 # 在docker 里执行编译测试
 CONTAINER=$(sudo docker run -d -v $MNT:/opt/project/ $IMAGE /bin/sh -c 'cd /opt/project/workspace && rake spec')
 # 进入容器，这样可以看到输出的内容
-docker attatch $CONTAINER
+docker attach $CONTAINER
 # 等待程序退出，得到返回码
 RC=$(docker wait $CONTAINER)
 # 删除刚刚用到的容器
