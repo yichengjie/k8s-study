@@ -10,3 +10,6 @@ RUN tar -xvzf docker-latest.tgz
 RUN mv docker/* /usr/bin/
 USER root
 RUN /usr/local/bin/install-plugins.sh junit git git-client ssh-slaves greenballs chucknorris ws-cleanup
+
+#https://github.com/turnbullpress/docker-jenkins-sample.git
+#https://github.com/yichengjie/docker-jenkins-sample.git
