@@ -9,16 +9,17 @@ RUN yum install docker-ce-19.03.11 -y
 ENV JENKINS_HOME /opt/jenkins/data
 ENV JENKINS_MIRROR http://mirrors.jenkins-ci.org
 # 
-RUN mkdir -p ${JENKINS_HOME}/plugins
 RUN mkdir -p /opt/jenkins/
+RUN mkdir -p ${JENKINS_HOME}/plugins
 #RUN wget -P /opt/jenkins/jenkins.war ${JENKINS_MIRROR}/war/latest/jenkins.war
 COPY jenkins.war /opt/jenkins/
 
 RUN for plugin in chucknorris greenballs scm-api git-client git ws-cleanup cloudbees-bitbucket-branch-source \
-        cloudbees-credentials cloudbees-deployer-plugin cloudbees-devoptics-enabler cloudbees-enabler \
-        cloudbees-enterprise-plugins cloudbees-feature-management cloudbees-folder 	cloudbees-jenkins-advisor cloudbees-plugin-gateway cloudbees-registration ;\
+            cloudbees-credentials cloudbees-deployer-plugin cloudbees-devoptics-enabler cloudbees-enabler \
+            cloudbees-enterprise-plugins cloudbees-feature-management cloudbees-folder 	cloudbees-jenkins-advisor \
+            cloudbees-plugin-gateway cloudbees-registration ;\
         do wget -P ${JENKINS_HOME}/plugins/${plugin}/latest/${plugin}.hpi \
-        ${JENKINS_MIRROR}/plugins/${plugin}/latest/${plugin}.hpi ;\
+            ${JENKINS_MIRROR}/plugins/${plugin}/latest/${plugin}.hpi ;\
     done
 #RUN wget -P ${JENKINS_HOME}/plugins/cloudbees-folder/latest/cloudbees-folder.hpi http://mirrors.jenkins-ci.org/plugins/cloudbees-folder/latest/cloudbees-folder.hpi
 # 
