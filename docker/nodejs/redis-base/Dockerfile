@@ -1,4 +1,4 @@
-FROM ubuntu:18.4
+FROM ubuntu:18.04
 LABEL maintainer="james@example"
 ENV REFRESHED_AT=2017-06-01
 
