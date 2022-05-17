@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   nodeSelector:
-    gup: "true"
+    gpu: "true"
   containers:
   - name: kubia-container
     image: "art.local:8081/docker-local/kubia:1.0"
