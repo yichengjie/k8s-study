@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: multi-completion-batch-job
+  namespace: default
+spec:
+  completions: 5
+  parallelism: 2
+  template:
+    metadata:
+      name: batch-job
+      labels:
+        app: batch-job
+    spec:
+      containers:
+      - name: batch-job
+        image: luksa/batch-job
+      restartPolicy: OnFailure
