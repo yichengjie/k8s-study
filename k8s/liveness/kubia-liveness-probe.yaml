@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "kubia-liveness"
+  namespace: default
+  labels:
+    app: "kubia-liveness"
+spec:
+  containers:
+  - name: kubia-liveness
+    image: "art.local:8081/docker-local/kubia-unhealthy"
+    resources:
+      limits:
+        cpu: 200m
+        memory: 500Mi
+      requests:
+        cpu: 100m
+        memory: 200Mi
+    livenessProbe:
+      httpGet:
+        path: /
+        port: 8080
