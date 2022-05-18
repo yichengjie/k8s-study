@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubia-nodeport
+  namespace: default
+spec:
+  selector:
+    app: kubia
+  type: NodePort
+  ports:
+  - name: kubia-nodeport
+    protocol: TCP
+    port: 80
+    targetPort: 8080 
+    nodePort: 30123
