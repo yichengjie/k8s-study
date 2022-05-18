@@ -8,7 +8,7 @@ metadata:
 spec:
   containers:
   - name: kubia-liveness
-    image: "art.local:8081/docker-local/kubia-unhealthy"
+    image: "art.local:8081/docker-local/kubia-unhealthy:1.0"
     resources:
       limits:
         cpu: 200m
