@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubia-headless
+  namespace: default
+spec:
+  selector:
+    app: kubia
+  clusterIP: None
+  ports:
+  - name: kubia-headless
+    protocol: TCP
+    port: 80
+    targetPort: 8080
