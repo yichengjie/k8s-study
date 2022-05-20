@@ -6,7 +6,7 @@ metadata:
 spec:
   containers:
   - name: html-generator
-    image: "art.local:8081/docker-local/fortune:1.0"
+    image: "luksa/fortune"
     resources:
     volumeMounts:
     - name: html
