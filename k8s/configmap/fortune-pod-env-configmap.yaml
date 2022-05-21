@@ -12,11 +12,12 @@ spec:
     - name: html
       mountPath: /var/htdocs
     env:
-    - name: INTERVAL
+    - name: INTERVA L
       valueFrom:
         configMapKeyRef:
           name: fortune-config
           key: sleep-interval
+          optional: true
   - name: web-server
     image: nginx:alpine
     resources:
