@@ -12,7 +12,7 @@ spec:
     - name: html
       mountPath: /var/htdocs
     env:
-    - name: INTERVA L
+    - name: INTERVAL
       valueFrom:
         configMapKeyRef:
           name: fortune-config
