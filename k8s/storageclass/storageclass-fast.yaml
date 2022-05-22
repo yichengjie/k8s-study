@@ -3,7 +3,7 @@ kind: StorageClass
 metadata:
   name: fast
 #！！！修改值---匹配deployment中的环境变量'PROVISIONER_NAME'
-provisioner: qgg-nfs-storage #这里的名称要和provisioner配置文件中的环境变量PROVISIONER_NAME保持一致
+provisioner: tintin-nfs-storage #这里的名称要和provisioner配置文件中的环境变量PROVISIONER_NAME保持一致
 parameters:
   archiveOnDelete: "true" # "false" 删除PVC时不会保留数据，"true"将保留PVC数据
 reclaimPolicy: Retain
