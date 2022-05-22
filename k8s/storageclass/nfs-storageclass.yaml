@@ -7,7 +7,3 @@ provisioner: qgg-nfs-storage #这里的名称要和provisioner配置文件中的
 parameters:
   archiveOnDelete: "false" # "false" 删除PVC时不会保留数据，"true"将保留PVC数据
 #reclaimPolicy: Retain
-
-
-
-
