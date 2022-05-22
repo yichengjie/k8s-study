@@ -24,6 +24,8 @@ spec:
         volumeMounts:
         - name: data
           mountPath: /var/data
+        env:
+          - 
   volumeClaimTemplates:
   - metadata:
       name: data
