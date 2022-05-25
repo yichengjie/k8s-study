@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "fortune-configmap-volume2"
+  namespace: default
+spec:
+  containers:
+  - name: web-server
+    image: nginx:alpine
+    resources:
+    volumeMounts:
+      - name: config
+        mountPath: /etc/nginx/conf.d/gzip.conf
+        subPath: gzip.conf
+        readOnly: true
+    ports:
+      - containerPort: 80
+        protocol: TCP
+  volumes:
+    - name: config
+      configMap:
+        name: fortune-config
+        items:
+          - key: my-nginx-config.conf
+            path: gzip.conf
