@@ -20,6 +20,7 @@ spec:
     - name: config
       configMap:
         name: fortune-config
+        defaultMode: 6600
         items:
           - key: my-nginx-config.conf
             path: gzip.conf
